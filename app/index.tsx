@@ -7,6 +7,8 @@ import CountChart from '@/components/Charts/CountChart';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { rules } from '@/constants/rules';
 import { useEffect, useState } from 'react';
+import { weekdays } from '@/constants/weekdays';
+import Badge from '@/components/Badge';
 
 type HomeScreenProps = {
   lightColor?: string;
@@ -30,9 +32,16 @@ export default function HomeScreen({ lightColor, darkColor }: HomeScreenProps) {
     <ThemedView contentContainerStyle={styles.titleContainer}>
       <StatusBar style="auto" backgroundColor={backgroundColor}/>
       <ThemedText type="title">X Yolu</ThemedText>
+      <ThemedText type='subtitle' style={styles.subtitle}>{rule}</ThemedText>
+      <ThemedView contentContainerStyle={styles.buttonContainer}>
+        {weekdays.map((weekday, i) => {
+          return (
+            <Badge text={weekday} onPress={() => console.log(weekday)}/>
+          );
+        })}
+      </ThemedView>
       <PercentChart />
       <CountChart />
-      <ThemedText type='subtitle' style={styles.subtitle}>{rule}</ThemedText>
     </ThemedView>
   );
 }
@@ -43,7 +52,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    marginVertical: 8
+  },
   subtitle: {
-    textAlign: 'center'
+    textAlign: 'center',
+    height: 48,
   }
 });

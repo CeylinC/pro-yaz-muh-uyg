@@ -1,0 +1,1 @@
+export const weekdays = ['PZT', 'SL', 'ÇRŞ', 'PRŞ', 'CM', 'CMT', 'PZ'];
