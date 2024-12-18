@@ -1,10 +1,10 @@
 import { View, Text } from "react-native";
 import { BarChart } from "react-native-gifted-charts";
 import { LinearGradient } from 'expo-linear-gradient';
-import { chartColor, ChartProps, data, screenWidth, styles } from "./ChartStyle";
+import { chartColor, ChartProps, screenWidth, styles } from "./ChartStyle";
 import { useThemeColor } from "@/hooks/useThemeColor";
 
-export default function PercentChart({ lightColor, darkColor }: ChartProps) {
+export default function PercentChart({ lightColor, darkColor, data }: ChartProps) {
     const textColor = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
     return (
